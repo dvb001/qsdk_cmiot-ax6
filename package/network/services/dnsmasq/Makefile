@@ -62,7 +62,8 @@ $(call Package/dnsmasq/Default)
   TITLE += (with DNSSEC, DHCPv6, Auth DNS, IPset, Conntrack, NO_ID enabled by default)
   DEPENDS:=+PACKAGE_dnsmasq_full_dnssec:libnettle \
 	+PACKAGE_dnsmasq_full_ipset:kmod-ipt-ipset \
-	+PACKAGE_dnsmasq_full_conntrack:libnetfilter-conntrack
+	+PACKAGE_dnsmasq_full_conntrack:libnetfilter-conntrack \
+	+libubox +libubus
   VARIANT:=full
   PROVIDES:=dnsmasq
 endef

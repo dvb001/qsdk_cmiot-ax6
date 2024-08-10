@@ -1,0 +1,29 @@
+ 
+dnsmasq: fix error with crypto.c
+
+Error is:
+  undefined reference to `nettle_get_secp_256r1'
+  undefined reference to `nettle_get_secp_384r1'
+
+Signed-off-by: dvb001 <dvb001@qq.com>
+
+--- a/src/crypto.c
++++ b/src/crypto.c
+@@ -301,5 +301,5 @@ fix1
+ 	  if (!(key_256 = whine_malloc(sizeof(struct ecc_point))))
+ 	    return 0;
+ 	  
+-	  nettle_ecc_point_init(key_256, nettle_get_secp_256r1());
++	  nettle_ecc_point_init(key_256, &nettle_secp_256r1);
+ 	}
+
+
+--- a/src/crypto.c
++++ b/src/crypto.c
+@@ -314,5 +314,5 @@ fix2
+ 	  if (!(key_384 = whine_malloc(sizeof(struct ecc_point))))
+ 	    return 0;
+ 	  
+-	  nettle_ecc_point_init(key_384, nettle_get_secp_384r1());
++	  nettle_ecc_point_init(key_384, &nettle_secp_384r1);
+ 	}

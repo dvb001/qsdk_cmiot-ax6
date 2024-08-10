@@ -1,0 +1,17 @@
+ 
+Author: dvb001 <dvb001@qq.com>
+
+    missing initializer for field '__in6_u' of 'struct in6_addr' [-Werror=missing-field-initializers]
+
+--- a/CMakeLists.txt	2021-05-07 16:56:36.098922860 -0700
++++ b/CMakeLists.txt	2021-05-07 17:00:42.613164231 -0700
+@@ -8,7 +8,7 @@
+ set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -std=c99")
+ 
+ 
+-add_definitions(-D_GNU_SOURCE -Wall -Werror -Wextra)
++add_definitions(-D_GNU_SOURCE -Wall -Wextra)
+ 
+ if (${EXT_CER_ID})
+ 
